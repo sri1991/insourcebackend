@@ -1,4 +1,4 @@
-
+var port = process.env.PORT||3000
 var mongoClient=require('mongodb').MongoClient,
 	assert=require('assert'),
 	express= require('express');
@@ -37,9 +37,9 @@ app.post('/insource',function(req,res,next){
 app.use(function(req,res){
 	res.sendStatus(404);
 });
-var server=app.listen(8000,function(){
+var server=app.listen(port,function(){
 		var port=server.address().port;
-		console.log('Express listening port'+port);
+		console.log('Express listening port '+port);
 });
 
 
