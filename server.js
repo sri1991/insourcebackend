@@ -22,7 +22,7 @@ app.post('/insource',function(req,res,next){
 	mongoClient.connect('mongodb://Sri:password@ds059284.mongolab.com:59284/srinivasdb',function(err,db){/*mongodb://localhost:27017/myFavorites*/
 		assert.equal(null,err);
 		console.log('connected to DB');
-		db.collection('insource').insert({'name':req.headers.name,'email':req.headers.email,'phone':req.headers.phone,'message':req.headers.message},function(err,result){
+		db.collection('insource').insert({'name':req.query.name,'email':req.query.email,'phone':req.query.phone,'message':req.query.message},function(err,result){
 			assert.equal(null,err);
 			console.log(result);
 			res.send('success');
